@@ -384,6 +384,9 @@ section > p + p { margin-top: var(--s3); }
   font-size: 16px; color: var(--ink); text-decoration: none;
   padding: 3px 0; min-height: 28px; display: block;
 }
+/* "Site" links split into two columns under one heading */
+.foot-links { display: flex; gap: var(--s6); align-items: flex-start; }
+.foot-links > div { display: flex; flex-direction: column; gap: var(--s1); }
 .foot-col a:hover {
   color: var(--accent); text-decoration: underline;
   text-decoration-thickness: 1px; text-underline-offset: 3px;
@@ -814,3 +817,13 @@ ul.social li { list-style: none; margin: 0; }
   .contact-card { padding: var(--s4); }
   .contact-actions .btn { flex: 1 1 auto; }
 }
+
+/* ---------- sticky footer --------------------------------------------------
+   The home page is now just the hero. Without this, on a tall screen the
+   footer rides up to mid-viewport and leaves bare paper underneath it.
+   main grows to fill any spare height, so the footer always sits at the
+   bottom. No effect on long pages. */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; }
+.page-head--home { padding: var(--s8) 0; }
+@media (max-width: 720px) { .page-head--home { padding: var(--s6) 0; } }

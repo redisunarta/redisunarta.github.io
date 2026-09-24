@@ -55,7 +55,7 @@ JSONLD = """<script type="application/ld+json">
 # with somewhere to go; set to None to omit the block.
 PAGES = {
     "index.html": dict(
-        toc=True,
+        toc=False,
         canonical="",
         nav=None,
         title="Redi Sunarta — Analytics for consumer tech companies",
@@ -66,9 +66,7 @@ PAGES = {
                 "spend actually profitable.",
         og_type="website",
         extra_head=JSONLD,
-        next=("work.html", "Work",
-              "Projects in promotional economics, fraud detection, and causal "
-              "inference."),
+        next=None,
     ),
     "work.html": dict(
         toc=True,

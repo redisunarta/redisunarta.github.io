@@ -51,11 +51,13 @@ assets/
   timur-logo.png      homepage mark, 440×440
   redi-440.jpg        About portrait, 440×440
   og.png              social card, 1200×630
-  favicon.svg
+  timur-logo-32.png   browser-tab icon (from timur-logo.png)
+  timur-logo-180.png  iPhone home-screen icon
   covers/             Timur cover thumbnails, 480×270
   dw/                 Datawrapper chart exports
 resume/               ← put the MASKED resume PDF here
 
+favicon.ico           fallback tab icon browsers request by default
 CNAME                 custom domain for GitHub Pages
 .nojekyll             stops GitHub running Jekyll — required
 robots.txt
