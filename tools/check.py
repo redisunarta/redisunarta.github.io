@@ -141,6 +141,8 @@ for name in pages:
 foots = set()
 for name in pages:
     s = open(name, encoding='utf-8').read()
+    if '<footer class="site-foot">' not in s:
+        continue   # pages built with footer=False (the home page)
     i, j = s.index('<footer class="site-foot">'), s.index('</footer>') + 9
     foots.add(hashlib.md5(s[i:j].encode()).hexdigest())
 if len(foots) != 1:

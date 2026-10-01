@@ -56,6 +56,7 @@ JSONLD = """<script type="application/ld+json">
 PAGES = {
     "index.html": dict(
         toc=False,
+        footer=False,   # home page has no footer
         canonical="",
         nav=None,
         title="Redi Sunarta — Analytics for consumer tech companies",
@@ -283,6 +284,10 @@ def build():
                 .replace("{{NAV_ABOUT}}", CURRENT if cfg["nav"] == "about" else ""))
 
         foot = foot_t.replace("{{YEAR}}", str(YEAR))
+        if cfg.get("footer") is False:
+            # drop only the <footer> block; keep </main>, scripts, </body></html>
+            foot = re.sub(r'<footer class="site-foot">.*?</footer>\n*', '',
+                          foot, flags=re.S)
 
         out = head + body + "\n\n" + foot
         out = re.sub(r"\n{3,}", "\n\n", out)
