@@ -827,3 +827,39 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 body > main { flex: 1 0 auto; }
 .page-head--home { padding: var(--s8) 0; }
 @media (max-width: 720px) { .page-head--home { padding: var(--s6) 0; } }
+
+/* ---------- home: rotating "latest from Timur" line -----------------------
+   Pinned to the bottom of the home page. main becomes a column only on the
+   page that contains .latest-wrap, so margin-top:auto pushes it down. */
+main:has(.latest-wrap) { display: flex; flex-direction: column; }
+.latest-wrap { margin-top: auto; padding-bottom: var(--s6); width: 100%; }
+.latest {
+  display: flex; align-items: center; gap: var(--s4);
+  border-top: 1px solid var(--rule); padding-top: var(--s4);
+}
+.latest-h {
+  flex: none; font-size: 13px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+.latest-rot { position: relative; flex: 1; min-width: 0; height: 28px; overflow: hidden; }
+.latest-i {
+  position: absolute; inset: 0; display: block; line-height: 28px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 16px; color: var(--ink); text-decoration: none;
+  opacity: 0; transform: translateY(100%); pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.latest-i.is-on  { opacity: 1; transform: none; pointer-events: auto; }
+.latest-i.is-off { opacity: 0; transform: translateY(-100%); }
+.latest-i:hover, .latest-i:focus-visible { color: var(--accent); }
+.latest-i:hover .latest-arrow { transform: translateX(3px); }
+.latest-n { font-weight: 600; margin-right: var(--s2); font-variant-numeric: tabular-nums; }
+.latest-arrow { display: inline-block; color: var(--accent); transition: transform .2s; }
+@media (max-width: 720px) {
+  .latest { flex-wrap: wrap; gap: var(--s2) var(--s3); }
+  .latest-rot { flex-basis: 100%; order: 3; }
+  .latest-wrap { padding-bottom: var(--s5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .latest-i { transition: none; }
+}

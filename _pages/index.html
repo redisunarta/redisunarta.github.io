@@ -13,3 +13,43 @@
       </div>
     </div>
   </div>
+
+  <!-- Rotating "latest from Timur" line. Each entry is a real link.
+       To change which issues show: edit the <a> rows below
+       (newest first). Works without JavaScript (shows the first one). -->
+  <div class="wrap latest-wrap">
+    <div class="latest" id="latest">
+      <span class="latest-h">Latest from Timur</span>
+      <div class="latest-rot">
+        <a class="latest-i is-on" href="https://www.linkedin.com/pulse/indonesias-tiktok-ban-strengthened-shopee-tokopedia-redi-sunarta-bvgec" rel="noopener"><span class="latest-n">Part 9</span> Indonesia&rsquo;s TikTok ban strengthened Shopee, not Tokopedia <span class="latest-arrow">&rarr;</span></a>
+        <a class="latest-i" href="https://www.linkedin.com/pulse/driver-supply-stayed-when-wages-were-cut-redi-sunarta-zchwc" rel="noopener"><span class="latest-n">Part 6</span> Driver supply stayed, when wages were cut <span class="latest-arrow">&rarr;</span></a>
+        <a class="latest-i" href="https://www.linkedin.com/pulse/when-cash-cow-dies-conglomerate-model-breaks-redi-sunarta-zl8lc" rel="noopener"><span class="latest-n">Part 7</span> When the cash cow dies, the conglomerate model breaks <span class="latest-arrow">&rarr;</span></a>
+        <a class="latest-i" href="https://www.linkedin.com/pulse/when-discount-stops-who-actually-leaves-why-redi-sunarta-igqqc" rel="noopener"><span class="latest-n">Part 2</span> When the discount stops, who actually leaves and why? <span class="latest-arrow">&rarr;</span></a>
+        <a class="latest-i" href="https://www.linkedin.com/pulse/after-burn-how-survivors-actually-make-money-now-redi-sunarta-ixkpc" rel="noopener"><span class="latest-n">Part 12</span> After the burn: how the survivors actually make money now <span class="latest-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var box = document.getElementById('latest');
+    if (!box) return;
+    var items = box.querySelectorAll('.latest-i');
+    if (items.length < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0, paused = false;
+    box.addEventListener('mouseenter', function () { paused = true; });
+    box.addEventListener('mouseleave', function () { paused = false; });
+    box.addEventListener('focusin',  function () { paused = true; });
+    box.addEventListener('focusout', function () { paused = false; });
+    setInterval(function () {
+      if (paused || document.hidden) return;
+      items[i].classList.remove('is-on');
+      items[i].classList.add('is-off');
+      var prev = items[i];
+      setTimeout(function () { prev.classList.remove("is-off"); }, 350);
+      i = (i + 1) % items.length;
+      items[i].classList.add('is-on');
+    }, 2000);
+  })();
+  </script>
