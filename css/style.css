@@ -862,3 +862,23 @@ main:has(.latest-wrap) { display: flex; flex-direction: column; }
 @media (prefers-reduced-motion: reduce) {
   .latest-i { transition: none; }
 }
+
+/* ---------- about: extras inside a cv row (award, volunteering, projects)
+   .cv-what .cv-extra, not .cv-extra: ".cv-what p + p" would otherwise win
+   on specificity and override the size and spacing. */
+.cv-what .cv-extra { margin-top: var(--s2); font-size: 15px; color: var(--ink-muted); }
+.cv-tag {
+  /* own line: the explanation starts underneath the tag, not beside it */
+  display: table; margin: 0 0 var(--s1);
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink); background: var(--paper-alt); border: 1px solid var(--rule);
+  border-radius: 3px; padding: 1px 6px; vertical-align: 1px;
+}
+.cv-links { list-style: none; margin: 0; padding: 0; }
+.cv-links li { padding: 2px 0; }
+.cv-links a { color: var(--ink); text-decoration: underline;
+  text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.cv-links a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.cv-what .cv-extra a { color: var(--ink); text-decoration: underline;
+  text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.cv-what .cv-extra a:hover { color: var(--accent); text-decoration-color: currentColor; }

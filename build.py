@@ -136,6 +136,49 @@ PAGES = {
         next=("work.html", "All projects",
               "Back to the full list."),
     ),
+    "project-citayam.html": dict(
+        canonical="project-citayam.html", nav="about",
+        title="Citayam's financial inclusion — Redi Sunarta",
+        desc="A field survey in Citayam: high financial inclusion on paper, limited "
+             "benefit in practice, because accounts were driven by work requirements.",
+        og_title="Citayam's financial inclusion",
+        og_desc="High inclusion on paper, limited benefit in practice.",
+        og_type="article",
+        next=("project-feui-lecturer.html", "The busiest FEUI lecturer",
+              "Turning class-cancellation tweets into a dataset."),
+    ),
+    "project-feui-lecturer.html": dict(
+        canonical="project-feui-lecturer.html", nav="about",
+        title="The busiest FEUI lecturer — Redi Sunarta",
+        desc="Using FEB UI's class-cancellation tweets to find which lecturers "
+             "cancelled most, and when. A data-wrangling project.",
+        og_title="The busiest FEUI lecturer",
+        og_desc="Class-cancellation tweets, read all at once.",
+        og_type="article",
+        next=("project-labor-market.html", "Does a degree still matter?",
+              "Scraping job postings to see what Indonesian employers ask for."),
+    ),
+    "project-labor-market.html": dict(
+        canonical="project-labor-market.html", nav="about",
+        title="Indonesia's labor market: does a degree still matter? — Redi Sunarta",
+        desc="Scraped Indeed and LinkedIn job postings to map the requirements, "
+             "skills and wages Indonesian employers were asking for in 2020.",
+        og_title="Indonesia's labor market: does a degree still matter?",
+        og_desc="What employers actually asked for, from their own job postings.",
+        og_type="article",
+        next=("about.html", "About", "Back to experience and education."),
+    ),
+    "volunteering.html": dict(
+        canonical="volunteering.html", nav="about",
+        title="Volunteering — Redi Sunarta",
+        desc="Community development with BEM UI and BEM FEB UI in Depok, and "
+             "university-entrance outreach with Himakara UI, 2016-2018.",
+        og_title="Volunteering with BEM UI and BEM FEB UI",
+        og_desc="Tutoring, a children's library, and training for mothers and "
+                "small businesses in Depok.",
+        og_type="article",
+        next=("about.html", "About", "Back to experience and education."),
+    ),
     "viz.html": dict(
         canonical="viz.html",
         nav="viz",

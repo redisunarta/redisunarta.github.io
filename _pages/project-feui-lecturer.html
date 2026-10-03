@@ -1,0 +1,33 @@
+  <div class="wrap">
+
+    <div class="page-head page-head--case">
+      <a class="back-link" href="about.html">&larr; About</a>
+      <div class="case-meta">Universitas Indonesia &middot; Data wrangling &middot; 2019</div>
+      <h1>The busiest FEUI lecturer</h1>
+      <p class="lede">Every cancelled or rescheduled class at FEB UI was announced on Twitter. Read together, those announcements are a dataset about who cancels, and when.</p>
+    </div>
+
+    <article class="case-detail">
+      <div class="field">
+        <div class="field-label">The question</div>
+        <p>Biro Pendidikan FEB UI used its Twitter account to announce cancelled and rescheduled classes. Students read them one at a time. I wanted to read them all at once and look for a pattern: which lecturers cancelled most, and at what points in the semester.</p>
+      </div>
+      <div class="field">
+        <div class="field-label">What I did</div>
+        <p>Pulled the account&rsquo;s tweets through the Twitter API, then turned free-text announcements into structured records &mdash; lecturer, course, date, and whether the class was cancelled or moved &mdash; using regular expressions.</p>
+      </div>
+      <div class="field">
+        <div class="field-label">The real objective</div>
+        <p>The main goal was to build data-wrangling skill. Announcement tweets are short, inconsistent and written by hand, which makes them a good training ground: most of the work is getting messy text into a shape you can count.</p>
+      </div>
+      <div class="field">
+        <div class="field-label">Data and tools</div>
+        <p><strong>Data:</strong> Twitter API (Biro Pendidikan FEB UI announcements).<br><strong>Tools:</strong> Pandas, RegEx, Tweepy.</p>
+      </div>
+    </article>
+
+    <section>
+      <p class="small muted">Student project from my time at Universitas Indonesia. &middot; <a href="about.html">Back to About</a></p>
+    </section>
+
+  </div>
