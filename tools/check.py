@@ -110,7 +110,7 @@ for name, p in parsed.items():
             if href[1:] not in p.ids:
                 errors.append(f"{name}: link to #{href[1:]} but no element has that id")
             continue
-        path = href.split('#')[0]
+        path = href.split('#')[0].split('?')[0]
         frag = href.split('#')[1] if '#' in href else None
         if path and not os.path.exists(path):
             errors.append(f"{name}: links to {path} — that file does not exist")
@@ -121,7 +121,7 @@ for name, p in parsed.items():
 for name in pages:
     src = open(name, encoding='utf-8').read()
     for ref in set(re.findall(r'(?:href|src)="(?!https?://|mailto:|#)([^"]+)"', src)):
-        f = ref.split('#')[0]
+        f = ref.split('#')[0].split('?')[0]   # ignore ?v=2 cache-busters
         if f and not os.path.exists(f):
             errors.append(f"{name}: missing asset {f}")
 
