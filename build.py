@@ -322,6 +322,11 @@ def build():
                 .replace("{{NAV_WRITING}}", CURRENT if cfg["nav"] == "writing" else "")
                 .replace("{{NAV_ABOUT}}", CURRENT if cfg["nav"] == "about" else ""))
 
+        # Simpler design: no divider lines, tighter spacing (see the
+        # SIMPLER DESIGN block at the end of style.css). Detail pages keep lines.
+        if "page-head--case" not in body:
+            head = head.replace('<html lang="en">', '<html lang="en" class="simple">', 1)
+
         foot = foot_t.replace("{{YEAR}}", str(YEAR))
         if cfg.get("footer") is False:
             # drop only the <footer> block; keep </main>, scripts, </body></html>

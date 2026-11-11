@@ -882,3 +882,58 @@ main:has(.latest-wrap) { display: flex; flex-direction: column; }
 .cv-what .cv-extra a { color: var(--ink); text-decoration: underline;
   text-decoration-color: var(--rule); text-underline-offset: 3px; }
 .cv-what .cv-extra a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+/* ===========================================================================
+   SIMPLER DESIGN (Nov 2026)
+   build.py puts class="simple" on <html> for every page EXCEPT detail pages
+   (anything using .page-head--case: case studies, student projects,
+   volunteering), which keep their original lines.
+   =========================================================================== */
+/* "Simpler" variant: whitespace and soft backgrounds instead of hairlines.
+   Not applied to case-study pages. Kept on purpose: the header line, buttons, the blue accent bar on outcomes, and the
+   active-section marker in the left outline (it's a navigation cue). */
+html.simple section + section,
+html.simple .proof,
+html.simple .case + .case,
+html.simple .stats,
+html.simple .series > summary,
+html.simple .pieces li,
+html.simple .next-nav,
+html.simple .site-foot,
+html.simple .foot-legal,
+html.simple .posts,
+html.simple .post,
+html.simple .cv,
+html.simple .cv-row,
+html.simple .latest,
+html.simple .viz-card img,
+html.simple .dw-card img { border: 0 !important; }
+
+html.simple .portrait, html.simple .avatar, html.simple .post-thumb,
+html.simple .post-n, html.simple .cv-tag { border-color: transparent !important; }
+
+/* cards: fill instead of outline */
+html.simple .card, html.simple .viz-card, html.simple .dw-card, html.simple .lead-strip {
+  border-color: transparent !important; background: var(--paper-alt);
+}
+html.simple .callout { border-left-color: transparent !important; background: var(--paper-alt); }
+
+/* outline: only the active item keeps its marker */
+html.simple .toc a { border-left-color: transparent !important; }
+html.simple .toc a[aria-current="true"] { border-left-color: var(--accent) !important; }
+
+/* rhythm: more air where lines used to separate things */
+html.simple .post { padding-top: var(--s3); padding-bottom: var(--s3); }
+html.simple .cv-row { padding-top: var(--s4); padding-bottom: var(--s4); }
+
+/* larger header (applies everywhere, both variants) */
+.brand { font-size: 20px; }
+.nav { font-size: 18px; gap: var(--s5); }
+@media (max-width: 640px) { .brand { font-size: 19px; } .nav { font-size: 17px; gap: var(--s4); } }
+
+/* tighter rhythm: without divider lines, 128px between sections reads as a hole */
+html.simple section:not(.bio-prose) { padding: var(--s5) 0; } /* 64 -> 32 each side */
+html.simple .page-head:not(.page-head--bio) { padding-bottom: var(--s4); } /* 48 -> 24; bio header keeps its 0 */
+@media (max-width: 640px) {
+  html.simple section:not(.bio-prose) { padding: var(--s4) 0; } /* 48 -> 24 */
+}
