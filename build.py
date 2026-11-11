@@ -80,8 +80,7 @@ PAGES = {
         og_desc="Notable projects in promotional economics, fraud detection, and "
                 "causal inference.",
         og_type="website",
-        next=("viz.html", "Data visualization",
-              "Sixteen Tableau dashboards and the Datawrapper charts behind Timur."),
+        next=None,   # top-level page: no 'Next' block
     ),
     # --- individual project pages -------------------------------------------
     # Each is a full case study. `nav="work"` keeps Work highlighted in the
@@ -189,8 +188,7 @@ PAGES = {
         og_desc="Tableau dashboards and Datawrapper charts on Indonesian poverty, "
                 "income, labor, and markets.",
         og_type="website",
-        next=("writing.html", "Writing",
-              "Timur — the same habit of mind applied to Southeast Asian tech."),
+        next=None,   # top-level page: no 'Next' block
     ),
     "writing.html": dict(
         toc=True,
@@ -204,8 +202,7 @@ PAGES = {
         og_desc="Mechanism-led, counterfactual writing on Southeast Asian tech. What "
                 "would have happened without the intervention?",
         og_type="website",
-        next=("about.html", "About",
-              "Where the habit came from, and the five years of work behind it."),
+        next=None,   # top-level page: no 'Next' block
     ),
     "about.html": dict(
         toc=True,
@@ -219,8 +216,7 @@ PAGES = {
         og_desc="Business intelligence analyst in Jakarta. Promotional economics, fraud "
                 "detection, causal inference.",
         og_type="profile",
-        next=("work.html", "Work",
-              "The projects that show the method rather than describe it."),
+        next=None,   # top-level page: no 'Next' block
     ),
     "404.html": dict(
         canonical="404.html",
