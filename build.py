@@ -292,6 +292,11 @@ def build():
     foot_t = read("_partials/foot.html")
     next_t = read("_partials/next.html")
 
+    # Cache-busting: the stylesheet URL changes whenever its content changes,
+    # so browsers and Cloudflare can never pair new HTML with a stale style.css.
+    import hashlib
+    CSSVER = hashlib.md5((ROOT / "css" / "style.css").read_bytes()).hexdigest()[:8]
+
     built = []
     for slug, cfg in PAGES.items():
         body = read(f"_pages/{slug}").rstrip("\n")
@@ -308,6 +313,7 @@ def build():
                             .replace("{{BLURB}}", nblurb)).rstrip("\n")
 
         head = (head_t
+                .replace("{{CSSVER}}", CSSVER)
                 .replace("{{DOMAIN}}", DOMAIN)
                 .replace("{{TITLE}}", cfg["title"])
                 .replace("{{DESC}}", cfg["desc"])
